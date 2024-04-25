@@ -11,7 +11,7 @@ from instr import *
 
 class FinalWin(QWidget):
    def __init__(self):
-       ''' окно, в котором проводится опрос '''
+       #''' окно, в котором проводится опрос '''
        super().__init__()
 
 
