@@ -1,5 +1,6 @@
 # напиши здесь код основного приложения и первого экрана
-from PyQt5.QtCore import Qt
+from PyQt5.QtCore import Qt,QTimer,QTime,QLocale
+from PyQt5.QtGui import QDoubleValidator,QFont
 from PyQt5.QtWidgets import (
        QApplication, QWidget,
        QHBoxLayout, QVBoxLayout,
@@ -13,14 +14,14 @@ class MainWin(QWidget):
        ##''' окно, в котором располагается приветствие '''
         super().__init__()
 
+        #устанавливает, как будет выглядеть окно (надпись, размер, место)
+        self.set_appear()
+
        # создаём и настраиваем графические элементы:
         self.initUI()
 
        #устанавливает связи между элементами
         self.connects()
-
-       #устанавливает, как будет выглядеть окно (надпись, размер, место)
-        self.set_appear()
 
        # старт:
         self.show()
@@ -30,6 +31,7 @@ class MainWin(QWidget):
         self.btn_next = QPushButton(txt_next, self)
         self.hello_text = QLabel(txt_hello)
         self.instruction = QLabel(txt_instruction)
+
         self.layout_line = QVBoxLayout()
         self.layout_line.addWidget(self.hello_text, alignment = Qt.AlignLeft)
         self.layout_line.addWidget(self.instruction, alignment = Qt.AlignLeft)
@@ -39,6 +41,7 @@ class MainWin(QWidget):
     def next_click(self):
         self.tw = TestWin()
         self.hide()
+        
     def connects(self):
         self.btn_next.clicked.connect(self.next_click)
    ##''' устанавливает, как будет выглядеть окно (надпись, размер, место) '''
@@ -46,6 +49,10 @@ class MainWin(QWidget):
         self.setWindowTitle(txt_title)
         self.resize(win_width, win_height)
         self.move(win_x, win_y)
-app = QApplication([])
-mw = MainWin()
-app.exec_()
+
+def main():
+    app = QApplication([])
+    mw = MainWin()
+    app.exec_()
+
+main()

@@ -1,5 +1,6 @@
 # напиши здесь код третьего экрана приложения
-from PyQt5.QtCore import Qt
+from PyQt5.QtCore import Qt,QTimer,QTime,QLocale
+from PyQt5.QtGui import QDoubleValidator,QFont
 from PyQt5.QtWidgets import (
        QApplication, QWidget,
        QHBoxLayout, QVBoxLayout, QGridLayout,
