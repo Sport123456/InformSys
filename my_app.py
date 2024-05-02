@@ -54,5 +54,6 @@ def main():
     app = QApplication([])
     mw = MainWin()
     app.exec_()
-
+##  Запускаем приложение
 main()
+
