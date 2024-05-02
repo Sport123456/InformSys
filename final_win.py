@@ -32,6 +32,9 @@ class FinalWin(QWidget):
         if self.exp.age < 7:
             self.index = 0
             return "нет данных для такого возраста"
+        if type(self.exp.t1) != int:
+            self.index = 0
+            return "  пульс должен быть числом"
         self.index = (4 * (int(self.exp.t1) + int(self.exp.t2) + int(self.exp.t3)) - 200) / 10
         if self.exp.age == 7 or self.exp.age == 8:
             if self.index >= 21:
